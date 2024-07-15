@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: rest-web-services
+  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+#    url: jdbc:mysql://localhost:3306/todos
+#    username: todo-user
+#    password: asd
+logging:
+  level:
+    org.springframework: info
