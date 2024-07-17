@@ -10,9 +10,9 @@ class UserDaoServiceInMemoryImpl: UserDaoService {
         var id: Int = 0
 
         var userList: MutableList<User> = arrayListOf(
-            User(++id, "Han", LocalDate.now().minusYears(17)),
-            User(++id, "Jin", LocalDate.now().minusYears(30)),
-            User(++id, "Ho", LocalDate.now().minusYears(29))
+//            User(++id, "Han", LocalDate.now().minusYears(17)),
+//            User(++id, "Jin", LocalDate.now().minusYears(30)),
+//            User(++id, "Ho", LocalDate.now().minusYears(29))
         )
 
     }

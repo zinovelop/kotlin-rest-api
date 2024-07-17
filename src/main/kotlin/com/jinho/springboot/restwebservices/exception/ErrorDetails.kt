@@ -1,9 +1,9 @@
 package com.jinho.springboot.restwebservices.exception
 
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 class ErrorDetails(
-    private var message: String,
-    private var timestamp: LocalDate,
-    private var details: String
+    val timestamp: LocalDateTime,
+    val message: String,
+    val details: String
 )
