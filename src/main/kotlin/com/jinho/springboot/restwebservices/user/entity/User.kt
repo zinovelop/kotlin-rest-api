@@ -2,7 +2,6 @@ package com.jinho.springboot.restwebservices.user.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.jinho.springboot.restwebservices.entity.post.Post
 import jakarta.persistence.*
 import jakarta.validation.constraints.Past
 import jakarta.validation.constraints.Size
@@ -21,13 +20,13 @@ class User (
     @field:Past(message = "생일이 현재보다 과거여야 합니다.")
     val birthDate: LocalDate,
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     @JsonIgnore
-    var posts:List<Post>
-    ){
+    var posts:List<Post>?
+
+     ){
 
     override fun toString(): String {
-        return "User(id=$id, name='$name', birthDate=$birthDate)"
+        return "User(id=$id, name='$name', birthDate=$birthDate, posts=$posts)"
     }
-
 }

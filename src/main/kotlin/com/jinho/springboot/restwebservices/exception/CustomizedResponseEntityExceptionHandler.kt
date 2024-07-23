@@ -20,7 +20,7 @@ class CustomizedResponseEntityExceptionHandler: ResponseEntityExceptionHandler()
         return ResponseEntity(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR)
     }
 
-    @ExceptionHandler(UserNotFoundException::class)
+    @ExceptionHandler(value = [UserNotFoundException::class, PostNotFoundException::class])
     fun handleUserNotFoundExceptions(ex: Exception, request: WebRequest): ResponseEntity<ErrorDetails> {
         val errorDetails:ErrorDetails = ErrorDetails(LocalDateTime.now(), ex.message.toString(), request.getDescription(false))
         return ResponseEntity(errorDetails, HttpStatus.NOT_FOUND)
@@ -32,7 +32,6 @@ class CustomizedResponseEntityExceptionHandler: ResponseEntityExceptionHandler()
         status: HttpStatusCode,
         request: WebRequest
     ): ResponseEntity<Any>? {
-        println("asdasdasdasdasd")
         val errorDetails:ErrorDetails = ErrorDetails(LocalDateTime.now(), ex.fieldError?.defaultMessage.toString(), request.getDescription(false))
         return ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST)
     }

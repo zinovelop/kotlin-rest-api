@@ -1,19 +1,25 @@
 spring:
+  security:
+    user:
+      name: username
+      password: password
   application:
     name: rest-web-services
   jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MariaDBDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     defer-datasource-initialization: true
   datasource:
-    url: jdbc:h2:mem:testdb
-#    url: jdbc:mysql://localhost:3306/todos
-#    username: todo-user
-#    password: asd
+#    url: jdbc:h2:mem:testdb
+    url: "jdbc:mariadb://localhost:3306/attendance"
+    username: attendance_admin
+    password: user!@#
+    driver-class-name: org.mariadb.jdbc.Driver
 logging:
   level:
     org.springframework: info
